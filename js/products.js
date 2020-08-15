@@ -1,8 +1,6 @@
 var currentProductsArray = [];
 var currentSortCriteria = undefined;
 const ORDER_ASC_BY_NAME = "AZ";
-var minCount = undefined;
-var maxCount = undefined;
 
 function showProductsList(){
 
@@ -10,9 +8,7 @@ function showProductsList(){
     for(let i = 0; i < currentProductsArray.length; i++){
         let product = currentProductsArray[i];
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(product.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.productCount) <= maxCount))){
-
+        
             htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
@@ -29,7 +25,6 @@ function showProductsList(){
                 </div>
             </a>
             `
-        }
 
         document.getElementById("productos").innerHTML = htmlContentToAppend;
     }

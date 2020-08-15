@@ -13,8 +13,6 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <script src="js/init.js"></script>
-  <script src="js/login.js"></script>
   <style>
     html, body{
       height: 100%;
@@ -40,17 +38,21 @@
 </head>
 
 <body class="text-center">
-  <form class="signin">
-    <img src="img\login.png" alt="" width="100%" >
-    <h1 class="h3 mb-3 font-weight-normal">Inicio de sesión</h1>
-    <label for="inputEmail" class="sr-only">Email </label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-    <hr>
-    <button onclick="myFunction()" class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
-  </form>
+  <div class="container p-5">
+    <form class="signin">
+      <img class="mb-4" src="img/login.png" alt="" width="100%" >
+      <h1 class="h3 mb-3 font-weight-normal">Registrarse</h1>
+      <label for="inputEmail" class="sr-only">Email</label>
+      <input id="email" type="email"  class="form-control" placeholder="Email">
+      <label for="inputPassword" class="sr-only">Contraseña</label>
+
+      <input id="pass" type="password"  class="form-control" placeholder="Contraseña">
+      <hr>
+      <button id="button" class="btn btn-lg btn-primary btn-block" type="button">Iniciar sesion</button>
+    </form>  
   </div>
 
+  <script src="js/init.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>
