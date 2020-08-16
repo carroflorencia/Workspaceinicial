@@ -1,22 +1,20 @@
-
+var mail = document.getElementById('email');
+var contr = document.getElementById('pass');
 
 
 document.getElementById("button").addEventListener("click", function () {
-    if (document.getElementById("email").value.length != 0 && document.getElementById("pass").value.length != 0) {
+    if (mail.value.length != 0 && contr.value.length != 0) {
         return location.href = "index.html";
     } else {
         noFunciona();
-
     }
 });
 
 function noFunciona() {
-    var mail = document.getElementById('email');
-    var contr = document.getElementById('pass');
 
     if (mail.value.length === 0) {
         mail.style.borderColor = "red";
-    }
+    } 
     if (contr.value.length === 0) {
         contr.style.borderColor = "red";
     }

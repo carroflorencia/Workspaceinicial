@@ -30,20 +30,20 @@ function showProductsList(){
     }
 }
 
-function sortAndShowCategories(sortCriteria, ProductsArray){
+function sortAndShowProducts(sortCriteria, ProductsArray){
     currentSortCriteria = sortCriteria;
 
     if(ProductsArray != undefined){
         currentProductsArray = ProductsArray;
     }
 
-    currentProductsArray = sortCategories(currentSortCriteria, currentProductsArray);
+    currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
 
     //Muestro las categorías ordenadas
     showProductsList();
 }
 
-function sortCategories(criteria, array){
+function sortProducts(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
     {
@@ -63,7 +63,7 @@ function sortCategories(criteria, array){
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
-            sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
+            sortAndShowProducts(ORDER_ASC_BY_NAME, resultObj.data);
         }
     });
 });
