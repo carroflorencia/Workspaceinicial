@@ -4,7 +4,8 @@ var contr = document.getElementById('pass');
 
 document.getElementById("button").addEventListener("click", function () {
     if (mail.value.length != 0 && contr.value.length != 0) {
-        return location.href = "index.html";
+        localStorage.setItem ("user", mail.value);
+        location.href = "homepage.html";
     } else {
         noFunciona();
     }
