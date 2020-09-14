@@ -1,23 +1,22 @@
 var product = {};
 var estrellas = "";
+var slideIndex = 1;
 
 function showImages(array){
 
-    let imagenes = document.getElementById("Images");
+    let imagenes = document.getElementById("slider");
     let htmlContentToAppend = "";
 
     for(let i = 0; i < array.length; i++){
         let image = array[i];
 
         htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + image + `" alt="">
-            </div>
+        <div class="mySlides">
+        <img src=` + image + ` style="width:100%">
         </div>
         `
 
-        imagenes.innerHTML = htmlContentToAppend;
+        imagenes.innerHTML = htmlContentToAppend +  imagenes.innerHTML;
     }
 };
 
@@ -122,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     
                 //Muestro las imagenes en forma de galería
                 showImages(product.images);
-            
+                showSlides(slideIndex);
                 
 
             }
@@ -163,3 +162,20 @@ document.getElementById("send").addEventListener("click", function () {
 
 
 });
+
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex-1].style.display = "block";
+};
