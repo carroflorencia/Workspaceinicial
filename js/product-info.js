@@ -61,9 +61,9 @@ function showComments(array){
         showStars(comentarios.score);
 
         htmlContentToAppend += `
-            <p class="mb-1"> Puntuación: `+ estrellas + `</p>
+           <p class="mb-1"> <strong>  `+ comentarios.user + `</strong></p> 
+           <p class="mb-1">`+ estrellas + `</p>
             <p class="mb-1"> Opinión: `+ comentarios.description + `</p>
-            <p class="mb-1"> Usuario: `+ comentarios.user + `</p>
             <p class="mb-1"> Fecha: `+ comentarios.dateTime + `</p>  
             <hr>        
         `
@@ -156,9 +156,9 @@ document.getElementById("send").addEventListener("click", function () {
     
 
     document.getElementById("opinion").innerHTML = "Opinion: "+ newcomment; 
-    document.getElementById("usuariolog").innerHTML = "Usuario: "+ usuario;
-    document.getElementById("fecha").innerHTML = "Fecha: "+ FechayHora;
-    document.getElementById("puntuación").innerHTML = "Puntuación: " + estrellas;
+    document.getElementById("usuariolog").innerHTML +=`<strong>`+ usuario+`</strong>`;
+    document.getElementById("fecha").innerHTML += "Fecha: "+ FechayHora;
+    document.getElementById("puntuación").innerHTML += estrellas ;
 
 
 });
@@ -171,7 +171,7 @@ function plusSlides(n) {
   function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
+    //var dots = document.getElementsByClassName("dot");
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {

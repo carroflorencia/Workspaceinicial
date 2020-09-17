@@ -49,4 +49,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("adduser").innerHTML = userlog;
   };
 
+  document.getElementById("logout").addEventListener("click", function () {
+    localStorage.removeItem("user");
+  });
+
 });
