@@ -58,31 +58,44 @@
         </dd>
         <br>
         
-        <dt>Descripción</dt>
-        <dd>
-          <p id="productDescription"></p>
-        </dd>
+        
+        
+          <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Descripción del producto. 
+          </a>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              <dt>Descripción</dt>
+              <dd> 
+              <p id="productDescription"></p>
+             </dd>
+             <dt>Costo del Producto</dt>
+             <dd>
+               <p id="productCost"></p>
+             </dd>
+     
+             <dt>Cantidad de vendidos</dt>
+             <dd>
+               <p id="productSoldcount"></p>
+             </dd>
+     
+             <dt>Categoría</dt>
+             <dd>
+               <a id="productCategory" href="category-info.html"></a>
+             </dd>
 
-        <dt>Costo del producto</dt>
-        <dd>
-          <p id="productCost"></p>
-        </dd>
-
-        <dt>Cantidad de vendidos</dt>
-        <dd>
-          <p id="productSoldcount"></p>
-        </dd>
-
-        <dt>Categoría</dt>
-        <dd>
-          <a id="productCategory" href="category-info.html"></a>
-        </dd>
+            </div>
+          </div>
+          
+          
         <br>
-
+        <hr>
+        <div class="conteiner">
         <dt>Comentarios y puntuación</dt>
         <br>
         <dd>
           <p id="comentarios"></p>
+          <div id="imagenprof"></div>
          <p class="mb-1" id="usuariolog"></p>
           <p class="mb-1" id="puntuación"></p>
           <p class="mb-1" id="opinion"></p> 
@@ -90,6 +103,7 @@
           <hr>  
 
         </dd>
+      </div>
 
         <dt>Agregar un comentario</dt>
         <dd>
@@ -113,9 +127,11 @@
         </dd>
 
         <dt>Productos relacionados</dt>
+        <br>
         <dd>
           <p id="relatedProducts"></p>
         </dd>
+
       </dl>
     </div>
   </main>

@@ -24,32 +24,37 @@ function showRelatedProducts(var1, var2){
     let related = document.getElementById("relatedProducts");
     let htmlContentToAppend = "";
 
+    htmlContentToAppend = `<div class="row">`
+
     for(let i = 0; i < var2.length; i++){
         let j = var2[i];
         // console.log(var1);
         // console.log(j);
         let relatepr = var1[j];
 
-        htmlContentToAppend += `
-        <a href="product-info.html" class="list-group-item list-group-item-action">
-        <div class="row">
-            <div class="col-3">
-                <img src="` + relatepr.imgSrc + `" alt="` + `" class="img-thumbnail">
-            </div>
-            <div class="col">
-                <div class="d-flex w-100 justify-content-between">
-                    <h4 class="mb-1">`+ relatepr.name + `</h4>
+        htmlContentToAppend += `        
+        <div class="col-sm-6">
+            <div class="card-columns">
+                <div class="card" style="width: 18rem;">
+                    <img src="` + relatepr.imgSrc + `" alt="` + `" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">`+ relatepr.name + `</h5>
+                        <p class="card-text">` + relatepr.cost + " " + relatepr.currency + `</p>
+                        <p class="card-text">` + relatepr.description + `</p>
+                        <a href="product-info.html" class="btn btn-secondary">Ver más</a>
+                    </div>
                 </div>
-                <p class="mb-1">` + relatepr.cost + " " + relatepr.currency + `</p>
-                <p class="mb-1">` + relatepr.description + `</p>
             </div>
         </div>
-        </a>            
         `
 
-        related.innerHTML = htmlContentToAppend;
+
     }
     //console.log (var2.length);
+
+    htmlContentToAppend += `</div>`
+
+    related.innerHTML = htmlContentToAppend;
 };
 
 function showComments(array){
@@ -61,6 +66,7 @@ function showComments(array){
         showStars(comentarios.score);
 
         htmlContentToAppend += `
+           <img src="https://thispersondoesnotexist.com/image" width="30" height="30" class="rounded-circle">
            <p class="mb-1"> <strong>  `+ comentarios.user + `</strong></p> 
            <p class="mb-1">`+ estrellas + `</p>
             <p class="mb-1"> Opinión: `+ comentarios.description + `</p>
@@ -159,6 +165,7 @@ document.getElementById("send").addEventListener("click", function () {
     document.getElementById("usuariolog").innerHTML +=`<strong>`+ usuario+`</strong>`;
     document.getElementById("fecha").innerHTML += "Fecha: "+ FechayHora;
     document.getElementById("puntuación").innerHTML += estrellas ;
+    document.getElementById("imagenprof").innerHTML =` <img src="img/profile.jpg" width="30" height="30" class="rounded-circle"></img> `
 
 
 });
