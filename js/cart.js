@@ -14,33 +14,32 @@ document.addEventListener("DOMContentLoaded", function(e){
         for(let i = 0; i < articulo.length; i++){
         let product = articulo[i];
         htmlContentToAppend += `
-        <table class="table">
-          <thead class="thead-light">
-           <tr>
-            <th scope="col"></th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Costo</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
             <tr>
-
-              <td>
-              <img src="` + product.src + `class="img">
-              </td>
+              <td><img src="` + product.src + `" class="img-thumbnail"></td>
               <td>` + product.name + `</td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>`+ product.unitCost + `  ` + product.currency +`</td>
+              <td> <input class="form-control" type="number" placeholder="cant." id="cantidad"></td>
+              <td id= Subtotal></td>
             </tr>
-          </tbody>
-        </table> 
-        `
+
+      `      
     }    
 
     document.getElementById("Table").innerHTML = htmlContentToAppend;
+    
+    document.getElementById("cantidad").addEventListener("keyup", function(){
+      for(let i = 0; i < articulo.length; i++){
+      let product = articulo[i];
+      let cantidad =  document.getElementById("cantidad").value;
+      let subtotal = product.unitCost * cantidad;
+
+      document.getElementById("Subtotal").innerHTML = `<strong>`+ subtotal + " "+ product.currency +`</strong>`;
     }
+
+    });
+
+
+
+  };   
   });
 });
