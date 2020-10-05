@@ -27,6 +27,11 @@
         font-size: 3.5rem;
       }
     }
+
+    .img-thumbnail{
+      width: 30%;
+    }
+
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -58,6 +63,8 @@
       </div>
       <h4>Articulos a Comprar</h4>
       <hr>
+      <div id="Table"></div>
+      <!--
       <table class="table">
         <thead class="thead-light">
          <tr>
@@ -71,7 +78,26 @@
         <tbody>
           <tr id="Table"></tr>
         </tbody>
-      </table> 
+      </table>
+      -->
+      
+      <table class="table">
+        <tbody>
+          <tr>
+            <td> Subtotal</td>
+            <td id="subtotaltotal"></td>
+          </tr>
+          <tr>
+            <td>Costo de envio</td>
+            <td id="costoenvio"></td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td id="TotalTotal"></td>
+          </tr>
+        </tbody>
+
+      </table>
       
      </div>
     </div>

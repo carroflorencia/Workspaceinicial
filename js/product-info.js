@@ -66,7 +66,7 @@ function showComments(array){
         showStars(comentarios.score);
 
         htmlContentToAppend += `
-           <img src="https://thispersondoesnotexist.com/image" width="30" height="30" class="rounded-circle">
+           <img src="img/image_`+i+`.jpg" width="30" height="30" class="rounded-circle">
            <p class="mb-1"> <strong>  `+ comentarios.user + `</strong></p> 
            <p class="mb-1">`+ estrellas + `</p>
             <p class="mb-1"> Opinión: `+ comentarios.description + `</p>
