@@ -32,6 +32,17 @@
       width: 30%;
     }
 
+    .row{
+      padding: .75rem 1.25rem;
+      margin-bottom: -1px;
+      background-color: #fff;
+      border: 1px solid rgba(0,0,0,.125);
+    }
+
+    .costos{ 
+      padding: 30px;
+    }
+
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -62,42 +73,42 @@
         <h2>Carrito de compras</h2>
       </div>
       <h4>Articulos a Comprar</h4>
-      <hr>
+      <br>
       <div id="Table"></div>
-      <!--
-      <table class="table">
-        <thead class="thead-light">
-         <tr>
-          <th scope="col"></th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Costo</th>
-          <th scope="col">Cantidad</th>
-          <th scope="col">Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="Table"></tr>
-        </tbody>
-      </table>
-      -->
-      
-      <table class="table">
-        <tbody>
-          <tr>
-            <td> Subtotal</td>
-            <td id="subtotaltotal"></td>
-          </tr>
-          <tr>
-            <td>Costo de envio</td>
-            <td id="costoenvio"></td>
-          </tr>
-          <tr>
-            <td>Total</td>
-            <td id="TotalTotal"></td>
-          </tr>
-        </tbody>
+      <br>
 
-      </table>
+      <h4>Costos</h4>
+      <br>
+      <div class="costos">
+      <div class="row">
+      <div class="col">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"> Subtotal</h5>
+            <p id="SubtotalTotal" class="text-muted"></p>
+        </div>
+        <p class="mb-1">Costo unitario del producto por cantidad</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"> Costo de envio</h5>
+            <p class="text-muted">0</p>
+        </div>
+        <p class="mb-1">Segun el tipo de envio</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"> Total ($)</h5>
+            <p id="TotalTotal" class="text-muted"></p>
+        </div>
+      </div>
+    </div>
+  </div>
       
      </div>
     </div>

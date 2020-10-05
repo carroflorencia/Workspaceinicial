@@ -59,9 +59,9 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("cantidad1").addEventListener("change", function(){
       let product = articulo[1];
       let cantidad =  document.getElementById("cantidad1").value;
-      let subtotal = product.unitCost * cantidad;
+      let subtotal = product.unitCost * 40 * cantidad;
 
-      document.getElementById("Subtotal1").innerHTML = `<strong>`+ subtotal + " "+ product.currency +`</strong>`;
+      document.getElementById("Subtotal1").innerHTML = `<strong>`+ subtotal + ` UYU</strong>`;
 
     });
 
