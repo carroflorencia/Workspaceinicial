@@ -41,6 +41,7 @@
 
     .costos{ 
       padding: 30px;
+      padding-top: 2px;
     }
 
   </style>
@@ -76,6 +77,122 @@
       <br>
       <div id="Table"></div>
       <br>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Seleccionar método de envio
+      </button>
+      
+      
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Métodos de envío:</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input type="radio" id="premium" name="ce" value="premium" onclick="costoEnvio(this)">
+              <label for="premium">Premium (2-5 días) - Costo del 15% sobre el subtotal</label><br>
+              <input type="radio" id="express" name="ce" value="express" onclick="costoEnvio(this)">
+              <label for="express">Express (5-8 días) - Costo del 7% sobre el subtotal</label><br>  
+              <input type="radio" id="standard" name="ce" value="standard" onclick="costoEnvio(this)">
+              <label for="standard">Standard (12 a 15 días) - Costo del 5% sobre el subtotal</label><br><br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Seleccionar forma de pago
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Formas de Pago</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Tarjeta de crédito
+                      </button>
+                    </h5>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      <form>
+                        <div class="form-row">
+                          <div class="col">
+                            <input type="text" class="form-control" placeholder="Nombre del titular">
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control" placeholder="Numero de la tarjeta">
+                          </div>
+                        </div>
+                        <br>
+                        <div class="form-row">
+                          <div class="col">
+                            <input type="text" class="form-control" placeholder="CVC">
+                          </div>
+                          <div class="col">
+                            <input type="text" class="form-control" placeholder="Vto">
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Transferencia bancaria
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Pago en efectivo
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                      Pago en efectivo al momento de la entrega.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
 
       <h4>Costos</h4>
       <br>
@@ -109,6 +226,7 @@
       </div>
     </div>
     <br>
+    
     <button id="finalizar" class="btn btn-primary" type="button">Finalizar Compra</button>
   </div>  
  
