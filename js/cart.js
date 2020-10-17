@@ -1,5 +1,6 @@
 let subTotalfinal = 0;
 let costoenvio = 0;
+let costoenvioinput =  document.getElementById("standard").value;
 
 document.addEventListener("DOMContentLoaded", function(e){
   
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(e){
               <td><img src="` + product.src + `" class="img-thumbnail"></td>
               <td>` + product.name + `</td>
               <td>`+ product.unitCost + `  ` + product.currency +`</td>
-              <td> <input class="form-control" type="number" placeholder="cant." value="` + product.count + `" 
+              <td> <input class="form-control" min="1" type="number" placeholder="cant." value="` + product.count + `" 
               onchange="calcularSubtotal(this,`+product.unitCost+`,'Subtotal`+i+`','`+product.currency+`')" id="cantidad`+i+`"></td>
               <td class="subtotales" id="Subtotal`+i+`"> UYU <strong class="subt">${calculate(product)}</strong>' </td>
             </tr>
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("Table").innerHTML = htmlContentToAppend;
     subt();
     showTotal();
+    checkenvio();
   };   
   });
 });
@@ -86,10 +88,13 @@ function calcularSubtotal(input, cost,subtotalId, currency){
 
       subt();
       showTotal();
+      costoEnvio(costoenvioinput);
       
 }; 
 
 function costoEnvio(input){
+  costoenvioinput = input; 
+
   let costofinal = 0
    if (input.value === "premium"){
      costofinal = subTotalfinal * 0.15
@@ -104,15 +109,31 @@ function costoEnvio(input){
   costoenvio = costofinal;
 
   showTotal();
+  checkenvio();
+  
 
 };
 
 
 function showTotal(){
+  document.getElementById("costoenvio").innerHTML = "UYU "+ costoenvio;
+  let total = subTotalfinal + costoenvio;
+  document.getElementById("TotalTotal").innerHTML = 'UYU <strong>' + total + '</strong>';  
+};
 
-document.getElementById("costoenvio").innerHTML = "UYU "+ costoenvio;
+function checkenvio(){
 
-let total = subTotalfinal + costoenvio;
-document.getElementById("TotalTotal").innerHTML = 'UYU <strong>' + total + '</strong>';  
+ document.getElementById("submitbutton").disabled = 'disabled';
+  
+  let tipoenvio = document.envio.ce;
+  console.log(tipoenvio);
+  
+  for (i=0; i<tipoenvio.length; i++) {
+    console.log(tipoenvio[i]);
+    if(tipoenvio[i].checked){
+      document.getElementById("submitbutton").disabled = false;
+    }
+  };
+
 };
 
