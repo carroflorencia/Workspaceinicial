@@ -143,23 +143,28 @@ function checkenvio(){
 
 
 
-document.getElementById("guardafp").addEventListener("click", function(){
+document.getElementById("submitbutton").addEventListener("click", function(){
 
-    if((tarjeta[i].value.length == 0)||(transferencia[i].value.length == 0)|| (efectivo.checked == false)){ 
+    if((document.getElementById("creditcard").checked == false) && (document.getElementById("transferencia").checked == false) && (document.getElementById("pagoefectivo").checked == false)){ 
     alert("Debe de seleccionar una forma de pago")
     };
 });
 
+function checkCreditCard(){
+    
+    for (var i = 0; i < tarjeta.length; i++) {
+      if (tarjeta[i].value.length == 0){ 
+        tarjeta[i].style.borderColor = "red";
+        document.getElementById("guardafp").disabled = 'disabled';
+      }else  document.getElementById("guardafp").disabled == false;
+    }
+};
+
+
 /* document.getElementById("guardafp").addEventListener("click", function(){
 
   
-    for (var i = 0; i < tarjeta.length; i++) {
-      if (tarjeta[i].value.length == 0){ 
-        alert("Falta completar un campo vacío");
-        tarjeta[i].style.borderColor = "red";
-      };
-    }
-  
+
     var transferencia = document.forms["tb"].elements;
     for (var i = 0; i < transferencia.length; i++) {
       if (transferencia[i].value.length == 0){ 
