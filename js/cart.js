@@ -1,6 +1,9 @@
 let subTotalfinal = 0;
 let costoenvio = 0;
 let costoenvioinput =  document.getElementById("standard").value;
+let tarjeta = document.forms["tc"].elements;
+let transferencia = document.forms["tb"].elements;
+let efectivo = document.ef.efec;
 
 document.addEventListener("DOMContentLoaded", function(e){
   
@@ -52,6 +55,8 @@ document.addEventListener("DOMContentLoaded", function(e){
     subt();
     showTotal();
     checkenvio();
+
+
   };   
   });
 });
@@ -126,14 +131,49 @@ function checkenvio(){
  document.getElementById("submitbutton").disabled = 'disabled';
   
   let tipoenvio = document.envio.ce;
-  console.log(tipoenvio);
+  //console.log(tipoenvio);
   
   for (i=0; i<tipoenvio.length; i++) {
-    console.log(tipoenvio[i]);
+    //console.log(tipoenvio[i]);
     if(tipoenvio[i].checked){
       document.getElementById("submitbutton").disabled = false;
     }
   };
-
 };
 
+
+
+document.getElementById("guardafp").addEventListener("click", function(){
+
+    if((tarjeta[i].value.length == 0)||(transferencia[i].value.length == 0)|| (efectivo.checked == false)){ 
+    alert("Debe de seleccionar una forma de pago")
+    };
+});
+
+/* document.getElementById("guardafp").addEventListener("click", function(){
+
+  
+    for (var i = 0; i < tarjeta.length; i++) {
+      if (tarjeta[i].value.length == 0){ 
+        alert("Falta completar un campo vacío");
+        tarjeta[i].style.borderColor = "red";
+      };
+    }
+  
+    var transferencia = document.forms["tb"].elements;
+    for (var i = 0; i < transferencia.length; i++) {
+      if (transferencia[i].value.length == 0){ 
+        alert("Falta completar un campo vacío");
+        transferencia[i].style.borderColor = "red";
+      };
+    }
+  
+    var efectivo = document.ef.efec;
+    if(efectivo.checked == false){ 
+      alert("Debe de seleccionar una forma de pago")
+    };
+  
+    if((tarjeta[i].value.length == 0)||(transferencia[i].value.length == 0)|| (efectivo.checked == false)){ 
+      alert("Debe de seleccionar una forma de pago")
+    };
+  }); */

@@ -148,6 +148,7 @@
     </button>
     
     <!-- Modal -->
+  
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -157,12 +158,14 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+          
           <div class="modal-body">
             <div id="accordion">
               <div class="card">
                 <div class="card-header" id="headingOne">
+            
                   <h5 class="mb-0">
-                    <input type="radio" id="e" name="FP" value="0">
+                    
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                       Tarjeta de crédito
                     </button>
@@ -195,8 +198,9 @@
               </div>
               <div class="card">
                 <div class="card-header" id="headingTwo">
-                  <h5 class="mb-0">
-                    <input type="radio" id="k" name="FP" value="0">
+                
+                <h5 class="mb-0">
+                    
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                       Transferencia bancaria
                     </button>
@@ -204,6 +208,7 @@
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                   <div class="card-body">
+                    <form name="tb">
                     <div class="form-row">
                       <div class="col">
                         <input type="text" class="form-control" placeholder="N° de cuenta">
@@ -221,12 +226,12 @@
                       <input type="text" class="form-control" placeholder="Banco">
                     </div>
                 </div>
+              </form>
                 </div>
               </div>
               <div class="card">
                 <div class="card-header" id="headingThree">
                   <h5 class="mb-0">
-                    <input type="radio" id="p" name="FP" value="0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                       Pago en efectivo
                     </button>
@@ -234,14 +239,17 @@
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                   <div class="card-body">
-                    Pago en efectivo al momento de la entrega.
+                    <form name="ef">
+                    <input type="radio" id="efec" name="efec" value="0">
+                    <label for="efec">Pago en efectivo al momento de la entrega.</label>
+                  </form>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button id="guardafp" type="button" class="btn btn-secondary" data-dismiss="modal">Guardar</button>
           </div>
         </div>
       </div>
