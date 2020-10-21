@@ -4,6 +4,7 @@ let costoenvioinput =  document.getElementById("standard").value;
 let tarjeta = document.forms["tc"].elements;
 let transferencia = document.forms["tb"].elements;
 let efectivo = document.ef.efec;
+let productos = [];
 
 document.addEventListener("DOMContentLoaded", function(e){
   
@@ -12,54 +13,57 @@ document.addEventListener("DOMContentLoaded", function(e){
       if (resultObj.status === "ok")
       {       
       cart = resultObj.data;
-      console.log(cart);
 
-      let articulo = cart.articles
-      console.log(articulo);
-
-      let htmlContentToAppend = `
-      <table class="table">
-      <thead class="thead-light">
-       <tr>
-        <th scope="col"></th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Costo</th>
-        <th scope="col">Cantidad</th>
-        <th scope="col">Subtotal</th>
-        </tr>
-      </thead>
-      <tbody>
-      `
-
-        for(let i = 0; i < articulo.length; i++){
-        let product = articulo[i];
-        htmlContentToAppend += `
-            <tr>
-              <td><img src="` + product.src + `" class="img-thumbnail"></td>
-              <td>` + product.name + `</td>
-              <td>`+ product.unitCost + `  ` + product.currency +`</td>
-              <td> <input class="form-control" min="1" type="number" placeholder="cant." value="` + product.count + `" 
-              onchange="calcularSubtotal(this,`+product.unitCost+`,'Subtotal`+i+`','`+product.currency+`')" id="cantidad`+i+`"></td>
-              <td class="subtotales" id="Subtotal`+i+`"> UYU <strong class="subt">${calculate(product)}</strong>' </td>
-            </tr>
-
-      `      
-    }  
-
-    htmlContentToAppend += `        
-    </tbody>
-    </table>
-    <hr>  
-    `  
-    document.getElementById("Table").innerHTML = htmlContentToAppend;
-    subt();
-    showTotal();
-    checkenvio();
-
-
+      showProducts();
   };   
   });
 });
+
+function showProducts(){
+  productos = cart.articles;
+  
+  let htmlContentToAppend = `
+  <table class="table">
+  <thead class="thead-light">
+   <tr>
+    <th scope="col"></th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Costo</th>
+    <th scope="col">Cantidad</th>
+    <th scope="col">Subtotal</th>
+    <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  `
+
+    for(let i = 0; i < productos.length; i++){
+    let product = productos[i];
+    htmlContentToAppend += `
+        <tr>
+          <td><img src="` + product.src + `" class="img-thumbnail"></td>
+          <td>` + product.name + `</td>
+          <td>`+ product.unitCost + `  ` + product.currency +`</td>
+          <td> <input class="form-control" min="1" type="number" placeholder="cant." value="` + product.count + `" 
+          onchange="calcularSubtotal(this,`+product.unitCost+`,'Subtotal`+i+`','`+product.currency+`')" id="cantidad`+i+`"></td>
+          <td class="subtotales" id="Subtotal`+i+`"> UYU <strong class="subt">${calculate(product)}</strong>' </td>
+          <td><button type="button" onclick="deleteProduct(${i})" class="btn btn-secondary btn-sm">Eliminar</button></td>
+          </tr>
+
+  `      
+}  
+
+htmlContentToAppend += `        
+</tbody>
+</table>
+<hr>  
+`  
+document.getElementById("Table").innerHTML = htmlContentToAppend;
+subt();
+showTotal();
+checkenvio();
+  
+};
 
 function calculate(product){ 
 
@@ -126,6 +130,7 @@ function showTotal(){
   document.getElementById("TotalTotal").innerHTML = 'UYU <strong>' + total + '</strong>';  
 };
 
+
 function checkenvio(){
 
  document.getElementById("submitbutton").disabled = 'disabled';
@@ -147,38 +152,46 @@ document.getElementById("submitbutton").addEventListener("click", function(){
 
     if((document.getElementById("creditcard").checked == false) && (document.getElementById("transferencia").checked == false) && (document.getElementById("pagoefectivo").checked == false)){ 
     alert("Debe de seleccionar una forma de pago")
-    };
+    } 
+    else if(document.getElementById("creditcard").checked){
+      let checkok = checkCreditCard();
+      if(!checkok){
+        alert("Faltan campos por completar de su Tarjeta de crédito")
+      }
+    } 
+    else if(document.getElementById("transferencia").checked){
+      let checkTranf = checkTransferencia();
+      if(!checkTranf){
+        alert("Faltan campos por completar de su transferencia")
+      }
+    } 
+    
 });
 
 function checkCreditCard(){
-    
+    let valid = true;
     for (var i = 0; i < tarjeta.length; i++) {
       if (tarjeta[i].value.length == 0){ 
         tarjeta[i].style.borderColor = "red";
-        document.getElementById("guardafp").disabled = 'disabled';
-      }else  document.getElementById("guardafp").disabled == false;
-    }
+        valid = false;
+      }
+    } 
+    return valid;
 };
 
 
-/* document.getElementById("guardafp").addEventListener("click", function(){
-
-  
-
-    var transferencia = document.forms["tb"].elements;
-    for (var i = 0; i < transferencia.length; i++) {
-      if (transferencia[i].value.length == 0){ 
-        alert("Falta completar un campo vacío");
-        transferencia[i].style.borderColor = "red";
-      };
+function checkTransferencia(){
+  let valid = true;
+  for (var i = 0; i < transferencia.length; i++) {
+    if (transferencia[i].value.length == 0){ 
+      transferencia[i].style.borderColor = "red";
+       valid = false;
     }
-  
-    var efectivo = document.ef.efec;
-    if(efectivo.checked == false){ 
-      alert("Debe de seleccionar una forma de pago")
-    };
-  
-    if((tarjeta[i].value.length == 0)||(transferencia[i].value.length == 0)|| (efectivo.checked == false)){ 
-      alert("Debe de seleccionar una forma de pago")
-    };
-  }); */
+  } 
+  return valid;
+};
+
+function deleteProduct(i){
+  productos.splice(i, 1);
+  showProducts();
+};

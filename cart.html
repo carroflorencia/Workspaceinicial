@@ -43,6 +43,14 @@
       padding: 30px;
       padding-top: 2px;
     }
+    
+    .total{
+     padding-left: 90px;
+     padding-right: 90px;
+     padding-block-end: 90px;
+    }
+   
+    
 
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -68,7 +76,7 @@
         </div>
       </div>
   </nav>
-  <main role="main">
+  <main class="total" role="main">
     <div class="container mt-5">
       <div class="text-center p-4">
         <h2>Carrito de compras</h2>
@@ -165,7 +173,7 @@
                 <div class="card-header" id="headingOne">
             
                   <h5 class="mb-0">
-                    <input type="radio" id="creditcard" name="tp" value="0" onclick="checkCreditCard()">
+                    <input type="radio" id="creditcard" name="tp" value="0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                       Tarjeta de crédito
                     </button>
@@ -258,8 +266,9 @@
     <br>
     <br>
   </div>  
-  <button id="submitbutton" type="button" class="btn btn-primary">Finalizar Compra</button>
-     </div>
+  </div>
+  <button id="submitbutton" type="submit" class="btn btn-success btn-lg btn-block">Finalizar Compra</button>
+  <br>
     </div>
     
  
