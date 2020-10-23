@@ -44,10 +44,13 @@ function showProducts(){
           <td><img src="` + product.src + `" class="img-thumbnail"></td>
           <td>` + product.name + `</td>
           <td>`+ product.unitCost + `  ` + product.currency +`</td>
-          <td> <input class="form-control" min="1" type="number" placeholder="cant." value="` + product.count + `" 
+          <td> <input class="input form-control" min="1" type="number" placeholder="cant." value="` + product.count + `" 
           onchange="calcularSubtotal(this,`+product.unitCost+`,'Subtotal`+i+`','`+product.currency+`')" id="cantidad`+i+`"></td>
           <td class="subtotales" id="Subtotal`+i+`"> UYU <strong class="subt">${calculate(product)}</strong>' </td>
-          <td><button type="button" onclick="deleteProduct(${i})" class="btn btn-secondary btn-sm">Eliminar</button></td>
+          <td>
+          <button type="button" onclick="deleteProduct(${i})" class="btn btn-secondary btn-sm">
+          Eliminar
+          </button></td>
           </tr>
 
   `      
@@ -195,3 +198,5 @@ function deleteProduct(i){
   productos.splice(i, 1);
   showProducts();
 };
+
+

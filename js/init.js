@@ -55,3 +55,16 @@ document.addEventListener("DOMContentLoaded", function(e){
   });
 
 });
+
+getJSONData(CART_INFO_URL2).then(function(resultObj){
+  if (resultObj.status === "ok")
+  {       
+  cart = resultObj.data;
+  let productos = [];
+  productos = cart.articles;
+
+  let htmlcontent = `<span class="badge badge-danger">${productos.length}</span>`
+
+  document.getElementById("badge").innerHTML = htmlcontent;
+};   
+});
