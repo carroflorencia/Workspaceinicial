@@ -52,14 +52,60 @@
         </div>
       </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container">
+    <div class="text-center p-4">
+      <h2>Perfil</h2>
+      <p class="lead">Ingresa tus datos personales.</p>
     </div>
-  </div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-8 order-md-1">
+        <form id="datosperfil">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Primer Nombre</label>
+              <input type="text" class="form-control" id="Name1" placeholder="" value="" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Segundo Nombre</label>
+              <input type="text" class="form-control" id="Name2" placeholder="" value="" >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Primer Apellido</label>
+              <input type="text" class="form-control" id="Lastname1" placeholder="" value="" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Segundo Apellido</label>
+              <input type="text" class="form-control" id="Lastname2" placeholder="" value="" >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>E-mail</label>
+              <input type="text" class="form-control" id="email" placeholder="" value="" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Domicilio</label>
+              <input type="text" class="form-control" id="dom" placeholder="" value="" >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Teléfono de Contacto</label>
+              <input type="text" class="form-control" id="tel" placeholder="" value="" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Edad</label>
+              <input type="number" class="form-control" id="edad" placeholder="" value="" min="0">
+            </div>
+          </div>
+          <hr>
+          <button id="guardarcambios" class="btn btn-primary btn-lg" type="submit">Guardar cambios</button>
+        </form>
+      </div>
+    </div>
+  </div>  
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>

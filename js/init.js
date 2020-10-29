@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   document.getElementById("logout").addEventListener("click", function () {
     localStorage.removeItem("user");
+    localStorage.removeItem("myprofile");
   });
 
 });
