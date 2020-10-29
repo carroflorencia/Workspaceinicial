@@ -47,7 +47,7 @@ var getJSONData = function(url){
 document.addEventListener("DOMContentLoaded", function(e){
   var userlog= localStorage.getItem("user");
   if (userlog != null){
-    document.getElementById("adduser").innerHTML = userlog;
+    document.getElementById("adduser").innerHTML += userlog;
   };
 
   document.getElementById("logout").addEventListener("click", function () {
