@@ -19,6 +19,26 @@ document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("tel").value = savedate.tel
     document.getElementById("edad").value = savedate.age;
 
+    
+    let htmlContenttoAppend = `
+    <div class="card text-center bg-light">
+        <div class="card-header">
+            Tus datos personales
+        </div>
+        <div class="card-body">
+        <h6> <b>Tu nombre</b>: `+ savedate.name + ` ` + savedate.secondname + ` ` + savedate.lastname + ` ` + savedate.secondlast +` </h6>
+        <br>
+        <p class="mb-0"><b>Mail:</b> `+ savedate.email +`</p>
+        <p class="mb-0"><b>Domicilio:</b> `+ savedate.domi +`</p>
+        <p class="mb-0"><b>Teléfono:</b> `+ savedate.tel +`</p>
+        <p class="mb-0"><b>Edad:</b> `+ savedate.age + `</p>
+        </div>
+
+    </div>
+    `
+    document.getElementById("div").innerHTML = htmlContenttoAppend;
+
+
     };
         
 });
@@ -37,5 +57,7 @@ document.getElementById("guardarcambios").addEventListener("click", function(){
     myProfile.age = document.getElementById("edad").value;
     
     localStorage.setItem("myprofile", JSON.stringify(myProfile));
+
+
 
 });
